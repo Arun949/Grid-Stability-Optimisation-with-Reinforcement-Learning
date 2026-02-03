@@ -31,7 +31,7 @@ As renewable energy sources like wind and solar become dominant, grid stability 
 1. **Clone the Repository**:
    ```bash
    git clone <repository-url>
-   cd "Grid Stability Optimisation"
+   cd "Grid-Stability-Optimisation-with-Reinforcement-Learning"
    ```
 
 2. **Set up Virtual Environment**:
