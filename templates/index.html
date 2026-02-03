@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Stability AI Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Grid<span>Optimizer</span> AI</h1>
+                <p>Advanced Renewable Stability Control</p>
+            </div>
+            <div class="status-badge">
+                <span class="pulse"></span> System Active
+            </div>
+        </header>
+
+        <main>
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <h3>Peak Load</h3>
+                    <div class="value" id="peak-load">-- MW</div>
+                    <p>Highest demand in period</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Renewable Purity</h3>
+                    <div class="value" id="renewable-purity">-- %</div>
+                    <p>Clean energy utilization</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Grid Imbalance</h3>
+                    <div class="value" id="grid-imbalance">-- MW</div>
+                    <p>Mean deviation from zero</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Battery Cycles</h3>
+                    <div class="value" id="battery-cycles">--</div>
+                    <p>Charge/Discharge events</p>
+                </div>
+            </section>
+
+            <section class="charts-container">
+                <div class="chart-box main-chart">
+                    <div class="chart-header">
+                        <h2>Grid Power Flow</h2>
+                        <div class="chart-controls">
+                             <button class="btn active">Flow</button>
+                        </div>
+                    </div>
+                    <canvas id="flowChart"></canvas>
+                </div>
+                <div class="chart-secondary-grid">
+                    <div class="chart-box">
+                        <h2>Battery SOC (%)</h2>
+                        <canvas id="socChart"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <h2>AI Action Strategy</h2>
+                        <canvas id="actionChart"></canvas>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <button id="run-eval" class="action-btn">Run AI Evaluation</button>
+            <p>&copy; 2026 Grid Stability Optimization Project</p>
+        </footer>
+
+        <div id="loader" class="hidden">
+            <div class="spinner"></div>
+            <p>Running Neural Simulation...</p>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
